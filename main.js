@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const enSpeech = document.getElementById('en-speech');
   const thSubtitles = document.getElementById('th-subtitles');
   const artGraphicContainer = document.getElementById('art-graphic-container');
+  const fantasySceneBg = document.getElementById('fantasy-scene-bg');
   const storyProgress = document.getElementById('story-progress');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
@@ -148,6 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressPercent = ((index + 1) / window.storyChapters.length) * 100;
     storyProgress.style.width = `${progressPercent}%`;
 
+    // Render Fullscreen Thematic Fantasy Background
+    if (fantasySceneBg && data.bgSvg) {
+      fantasySceneBg.className = 'fantasy-scene-bg active ' + (data.bgTheme || '');
+      fantasySceneBg.innerHTML = data.bgSvg;
+    }
+
     // Render Dynamic Graphics
     artGraphicContainer.innerHTML = `
       <div class="visual-card">
@@ -191,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.style.cursor = index === 0 ? 'not-allowed' : 'pointer';
 
     if (index === window.storyChapters.length - 1) {
-      nextBtn.innerHTML = '⚔️ Restart Journey';
+      nextBtn.innerHTML = 'âš”ï¸ Restart Journey';
     } else {
-      nextBtn.innerHTML = 'Next ❯';
+      nextBtn.innerHTML = 'Next â¯';
     }
   }
 
@@ -257,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Sound FX Toggle
   toggleSoundBtn.addEventListener('click', () => {
     const isMuted = window.fantasyAudio.toggleMute();
-    toggleSoundBtn.querySelector('.icon').textContent = isMuted ? '🔇' : '🔊';
+    toggleSoundBtn.querySelector('.icon').textContent = isMuted ? 'ðŸ”‡' : 'ðŸ”Š';
     toggleSoundBtn.querySelector('.label').textContent = isMuted ? 'Muted' : 'Sound FX';
   });
 
