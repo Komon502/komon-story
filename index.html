@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Chronicles of Komon | Guided by Jenis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Prompt:wght@300;400;600&family=Quicksand:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient Audio Indicator / Mute Toggle -->
+  <div id="audio-controls" class="floating-controls">
+    <button id="toggle-sound-btn" class="icon-btn" title="Toggle Sound (Mute/Unmute)">
+      <span class="icon">🔊</span>
+      <span class="label">Sound FX</span>
+    </button>
+    <button id="reset-btn" class="icon-btn reset-trigger" title="Reset to Beginning">
+      <span class="icon">🔄</span>
+      <span class="label">Close Gate</span>
+    </button>
+  </div>
+
+  <!-- Background Music / Ambience Canvas -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ================= SCENE 1: THE FANTASY GATEWAY ================= -->
+  <section id="gate-scene" class="scene active">
+    <div class="mist-overlay"></div>
+    <div class="fantasy-gate-wrapper">
+      <div class="floating-runes-ring">
+        <span class="rune" style="--i:1">✦</span>
+        <span class="rune" style="--i:2">ᚱ</span>
+        <span class="rune" style="--i:3">✧</span>
+        <span class="rune" style="--i:4">ᛟ</span>
+        <span class="rune" style="--i:5">✦</span>
+        <span class="rune" style="--i:6">ᛉ</span>
+        <span class="rune" style="--i:7">✧</span>
+        <span class="rune" style="--i:8">ᛏ</span>
+      </div>
+
+      <!-- Left & Right Doors -->
+      <div class="door-frame">
+        <div class="door door-left" id="door-left">
+          <div class="door-texture">
+            <div class="door-engraving">⚜</div>
+            <div class="door-arch"></div>
+            <div class="door-handle"></div>
+          </div>
+        </div>
+        <div class="door door-right" id="door-right">
+          <div class="door-texture">
+            <div class="door-engraving">⚜</div>
+            <div class="door-arch"></div>
+            <div class="door-handle"></div>
+          </div>
+        </div>
+
+        <!-- Light leaking from behind the door -->
+        <div class="gate-portal-light"></div>
+      </div>
+
+      <div class="gate-intro-text">
+        <h1 class="fantasy-title">THE SANCTUM OF KOMON</h1>
+        <p class="fantasy-subtitle">Step forth, brave adventurer. Beyond these ancient gates lies the truth.</p>
+        <button id="open-gate-btn" class="magical-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-text">⚔️ UNSEAL THE GATES ⚔️</span>
+        </button>
+        <p class="hint-text">Click to channel magic and unlock the realm</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCENE 2: THE INNER REALM (STORY SANCTUM) ================= -->
+  <section id="realm-scene" class="scene hidden">
+    <!-- Dynamic Fantasy Background Illustrations Container -->
+    <div id="dynamic-backdrop" class="backdrop-container">
+      <div class="backdrop-art active" id="bg-art">
+        <div class="art-layer art-glow"></div>
+        <div class="art-layer art-graphic" id="art-graphic-container">
+          <!-- SVG and dynamic visual elements injected per scene -->
+        </div>
+      </div>
+    </div>
+
+    <!-- The Magical Floating Orb Guide: JENIS -->
+    <div id="javis-companion" class="javis-entity">
+      <div class="javis-orbit-ring ring-1"></div>
+      <div class="javis-orbit-ring ring-2"></div>
+      <div class="javis-core-orb">
+        <div class="core-light"></div>
+        <div class="energy-swirl"></div>
+        <div class="inner-pulse"></div>
+      </div>
+      <div class="javis-nameplate">
+        <span class="ai-badge">✦ CELESTIAL SPIRIT ✦</span>
+        <h3 class="name">JENIS</h3>
+        <div class="voice-wave" id="voice-waves">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subtitles / Narration UI Box -->
+    <div class="narration-console">
+      <div class="console-glass">
+        <!-- Chapter / Step Tracker -->
+        <div class="chapter-badge" id="chapter-badge">PROLOGUE: THE SUMMONING</div>
+
+        <!-- English Speech (Narration) -->
+        <div class="speech-box">
+          <p id="en-speech" class="en-text">...</p>
+        </div>
+
+        <!-- Thai Translation (CC Subtitles) -->
+        <div class="translation-box">
+          <span class="cc-tag">CC ภาษาไทย</span>
+          <p id="th-subtitles" class="th-text">...</p>
+        </div>
+
+        <!-- Interactive Progress & Controls -->
+        <div class="story-controls">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="story-progress"></div>
+          </div>
+          <div class="btn-group">
+            <button id="prev-btn" class="nav-btn" title="Previous chapter">❮ Back</button>
+            <button id="replay-btn" class="nav-btn" title="Replay voice">🔊 Replay Voice</button>
+            <button id="next-btn" class="nav-btn highlight" title="Next chapter">Next ❯</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="audio.js"></script>
+  <script src="story.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
