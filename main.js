@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const gateScene = document.getElementById('gate-scene');
   const realmScene = document.getElementById('realm-scene');
@@ -198,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.style.cursor = index === 0 ? 'not-allowed' : 'pointer';
 
     if (index === window.storyChapters.length - 1) {
-      nextBtn.innerHTML = 'âš”ï¸ Restart Journey';
+      nextBtn.innerHTML = '&#9876;&#65039; Restart Journey';
     } else {
-      nextBtn.innerHTML = 'Next â¯';
+      nextBtn.innerHTML = 'Next &rsaquo;';
     }
   }
 
