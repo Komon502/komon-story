@@ -827,3 +827,258 @@ body {
     font-size: 0.9rem;
   }
 }
+/* =========================================
+   CHARACTER CREATION MODAL & TRAVELER PILL
+   ========================================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 8, 16, 0.85);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+}
+
+.modal-backdrop.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-card {
+  position: relative;
+  width: 90%;
+  max-width: 580px;
+  background: rgba(14, 19, 36, 0.94);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 26px;
+  padding: 34px 38px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(245, 208, 97, 0.2);
+  text-align: center;
+  animation: modal-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modal-enter {
+  0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-glow {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.25) 0%, rgba(245, 208, 97, 0.15) 50%, transparent 75%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.modal-badge {
+  font-family: var(--font-fantasy);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  color: var(--magic-cyan);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-family: var(--font-fantasy);
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--primary-gold-bright) 60%, var(--primary-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  color: #a8b2d1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.character-creation-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-fantasy);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: var(--primary-gold-bright);
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.magic-input {
+  width: 100%;
+  padding: 13px 18px;
+  background: rgba(8, 12, 24, 0.8);
+  border: 1px solid rgba(245, 208, 97, 0.4);
+  border-radius: 14px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.magic-input:focus {
+  border-color: var(--magic-cyan);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
+  background: rgba(12, 17, 34, 0.95);
+}
+
+.magic-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.role-card {
+  background: rgba(10, 15, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  user-select: none;
+}
+
+.role-card:hover {
+  border-color: var(--magic-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  transform: translateY(-2px);
+}
+
+.role-card.active {
+  border-color: var(--primary-gold);
+  background: rgba(245, 208, 97, 0.15);
+  box-shadow: 0 0 16px rgba(245, 208, 97, 0.25);
+}
+
+.role-icon {
+  font-size: 1.8rem;
+}
+
+.role-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-name {
+  font-family: var(--font-fantasy);
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.role-tag {
+  font-size: 0.72rem;
+  color: #a8b2d1;
+}
+
+.role-card.active .role-name {
+  color: var(--primary-gold-bright);
+}
+
+.role-card.active .role-tag {
+  color: var(--primary-gold);
+}
+
+.error-msg {
+  color: #ff6b81;
+  font-size: 0.82rem;
+  margin-top: -6px;
+}
+
+.error-msg.hidden {
+  display: none;
+}
+
+.full-btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Active Traveler Banner Pill (Top-Left of Story Sanctum) */
+.traveler-banner-pill {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(13, 18, 33, 0.82);
+  border: 1px solid var(--border-gold);
+  border-radius: 30px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  animation: float-pill 4s ease-in-out infinite alternate;
+}
+
+@keyframes float-pill {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.traveler-icon {
+  font-size: 1.4rem;
+}
+
+.traveler-texts {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.traveler-role-label {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: var(--magic-cyan);
+  font-family: var(--font-fantasy);
+  text-transform: uppercase;
+}
+
+.traveler-name-label {
+  font-family: var(--font-fantasy);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-gold-bright);
+  letter-spacing: 1px;
+}
+

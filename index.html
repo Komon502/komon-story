@@ -77,6 +77,75 @@
     </div>
   </section>
 
+  <!-- ================= SCENE 1.5: CHARACTER CREATION MODAL ================= -->
+  <div id="character-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-glow"></div>
+      <div class="modal-header">
+        <span class="modal-badge">✦ SANCTUARY RITUAL ✦</span>
+        <h2 class="modal-title">FORGE YOUR IDENTITY</h2>
+        <p class="modal-subtitle">Before Jenis can guide you through the realm to seek the true identity of Nueng, declare who you are.</p>
+      </div>
+
+      <div class="character-creation-body">
+        <!-- Name Input -->
+        <div class="form-group">
+          <label for="char-name-input" class="form-label">TRAVELER'S NAME</label>
+          <div class="input-wrapper">
+            <input type="text" id="char-name-input" class="magic-input" placeholder="Enter your name or title (e.g., Alex, Sir Rowan)..." maxlength="24" autocomplete="off" />
+            <span class="input-focus-border"></span>
+          </div>
+        </div>
+
+        <!-- Class / Role Selection -->
+        <div class="form-group">
+          <label class="form-label">CHOOSE YOUR PATH (SEEKER ROLE)</label>
+          <div class="roles-grid" id="roles-grid">
+            <div class="role-card active" data-role="Seeker of Truth" data-icon="🧭" data-desc="A curious soul longing to uncover the true passions and essence of Komon.">
+              <span class="role-icon">🧭</span>
+              <div class="role-info">
+                <span class="role-name">Seeker of Truth</span>
+                <span class="role-tag">Curious & Wise</span>
+              </div>
+            </div>
+
+            <div class="role-card" data-role="Valiant Paladin" data-icon="⚔️" data-desc="A courageous hero who honors loyalty, determination, and enduring friendship.">
+              <span class="role-icon">⚔️</span>
+              <div class="role-info">
+                <span class="role-name">Valiant Paladin</span>
+                <span class="role-tag">Courage & Honor</span>
+              </div>
+            </div>
+
+            <div class="role-card" data-role="Arcane Scholar" data-icon="🔮" data-desc="A master of wisdom who values logic, engineering artistry, and innovation.">
+              <span class="role-icon">🔮</span>
+              <div class="role-info">
+                <span class="role-name">Arcane Scholar</span>
+                <span class="role-tag">Logic & Intellect</span>
+              </div>
+            </div>
+
+            <div class="role-card" data-role="Melodic Bard" data-icon="🎸" data-desc="A free spirit enchanted by rhythms, rock guitars, and roaring engines.">
+              <span class="role-icon">🎸</span>
+              <div class="role-info">
+                <span class="role-name">Melodic Bard</span>
+                <span class="role-tag">Melody & Freedom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p id="char-error-msg" class="error-msg hidden">Please enter a name to proceed.</p>
+
+        <!-- Submit Button -->
+        <button id="embark-btn" class="magical-btn full-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-text">✨ EMBARK WITH JENIS ✨</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= SCENE 2: THE INNER REALM (STORY SANCTUM) ================= -->
   <section id="realm-scene" class="scene hidden">
     <!-- Dynamic Fantasy Background Illustrations Container -->
@@ -87,6 +156,15 @@
         <div class="art-layer art-graphic" id="art-graphic-container">
           <!-- SVG and dynamic visual elements injected per scene -->
         </div>
+      </div>
+    </div>
+
+    <!-- Active Traveler Banner Pill (Top-Left) -->
+    <div id="traveler-pill" class="traveler-banner-pill">
+      <span class="traveler-icon" id="traveler-icon-display">🧭</span>
+      <div class="traveler-texts">
+        <span class="traveler-role-label" id="traveler-role-display">Seeker of Truth</span>
+        <span class="traveler-name-label" id="traveler-name-display">Traveler</span>
       </div>
     </div>
 

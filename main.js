@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Elements
   const gateScene = document.getElementById('gate-scene');
   const realmScene = document.getElementById('realm-scene');
@@ -7,6 +7,17 @@
   const resetBtn = document.getElementById('reset-btn');
   const toggleSoundBtn = document.getElementById('toggle-sound-btn');
   const starsCanvas = document.getElementById('stars-canvas');
+
+  // Character Creation Modal Elements
+  const characterModal = document.getElementById('character-modal');
+  const charNameInput = document.getElementById('char-name-input');
+  const rolesGrid = document.getElementById('roles-grid');
+  const embarkBtn = document.getElementById('embark-btn');
+  const charErrorMsg = document.getElementById('char-error-msg');
+  const travelerPill = document.getElementById('traveler-pill');
+  const travelerIconDisplay = document.getElementById('traveler-icon-display');
+  const travelerRoleDisplay = document.getElementById('traveler-role-display');
+  const travelerNameDisplay = document.getElementById('traveler-name-display');
 
   // Story Elements
   const chapterBadge = document.getElementById('chapter-badge');
@@ -23,7 +34,13 @@
 
   let currentChapterIndex = 0;
   let typewriterInterval = null;
-  let maleVoice = null;
+
+  // Traveler Profile State
+  let travelerProfile = {
+    name: "Traveler",
+    role: "Seeker of Truth",
+    icon: "🧭"
+  };
 
   // ==========================================
   // STARFIELD ANIMATION
@@ -82,9 +99,6 @@
 
     function pickVoice() {
       const voices = window.speechSynthesis.getVoices();
-      
-      // Look for natural, expressive female voices in modern browsers
-      // (Microsoft Zira, Jenny, Aria, Sonia, Google US English Female, Samantha, Victoria, Karen)
       const femaleKeywords = [
         'Jenny', 'Aria', 'Sonia', 'Zira', 'Samantha', 'Victoria', 'Karen', 'Moira',
         'Google US English', 'Natural', 'Female'
@@ -135,35 +149,47 @@
     window.speechSynthesis.speak(utterance);
   }
 
+  // Helper: Format Personalized Story Text
+  function personalizeText(template) {
+    if (!template) return '';
+    return template
+      .replace(/{userName}/g, travelerProfile.name)
+      .replace(/{userRole}/g, travelerProfile.role);
+  }
+
   // ==========================================
   // RENDER CHAPTER & TYPEWRITER EFFECT
   // ==========================================
   function renderChapter(index) {
-    const data = window.storyChapters[index];
-    if (!data) return;
+    const rawData = window.storyChapters[index];
+    if (!rawData) return;
 
     window.fantasyAudio.playSwoosh();
 
+    // Create personalized story data for this traveler
+    const formattedEnText = personalizeText(rawData.enText);
+    const formattedThText = personalizeText(rawData.thText);
+
     // Update Badges & Progress
-    chapterBadge.textContent = data.chapter;
+    chapterBadge.textContent = rawData.chapter;
     const progressPercent = ((index + 1) / window.storyChapters.length) * 100;
     storyProgress.style.width = `${progressPercent}%`;
 
     // Render Fullscreen Thematic Fantasy Background
-    if (fantasySceneBg && data.bgSvg) {
-      fantasySceneBg.className = 'fantasy-scene-bg active ' + (data.bgTheme || '');
-      fantasySceneBg.innerHTML = data.bgSvg;
+    if (fantasySceneBg && rawData.bgSvg) {
+      fantasySceneBg.className = 'fantasy-scene-bg active ' + (rawData.bgTheme || '');
+      fantasySceneBg.innerHTML = rawData.bgSvg;
     }
 
     // Render Dynamic Graphics
     artGraphicContainer.innerHTML = `
       <div class="visual-card">
-        <div class="card-icon-hero">${data.icon}</div>
+        <div class="card-icon-hero">${rawData.icon}</div>
         <h2 style="font-family: var(--font-fantasy); color: var(--primary-gold-bright); margin-top: 10px; font-size: 1.4rem; letter-spacing: 2px;">
-          ${data.title}
+          ${rawData.title}
         </h2>
         <div class="items-grid">
-          ${data.items.map(item => `
+          ${rawData.items.map(item => `
             <div class="sub-item-card">
               <span class="sub-item-icon">${item.icon}</span>
               <span class="sub-item-name">${item.label}</span>
@@ -176,21 +202,20 @@
     // Typewriter effect for English narration
     if (typewriterInterval) clearInterval(typewriterInterval);
     enSpeech.textContent = '';
-    thSubtitles.textContent = data.thText;
+    thSubtitles.textContent = formattedThText;
 
     let charIdx = 0;
-    const fullText = data.enText;
     typewriterInterval = setInterval(() => {
-      if (charIdx < fullText.length) {
-        enSpeech.textContent += fullText.charAt(charIdx);
+      if (charIdx < formattedEnText.length) {
+        enSpeech.textContent += formattedEnText.charAt(charIdx);
         charIdx++;
       } else {
         clearInterval(typewriterInterval);
       }
     }, 28);
 
-    // Speak voice
-    speakText(data.enText);
+    // Jenis speaks the English narrative with the user's name
+    speakText(formattedEnText);
 
     // Update Navigation Buttons State
     prevBtn.disabled = index === 0;
@@ -205,34 +230,85 @@
   }
 
   // ==========================================
-  // DOOR OPENING SEQUENCE
+  // CHARACTER CREATION ROLE SELECTOR
+  // ==========================================
+  if (rolesGrid) {
+    rolesGrid.querySelectorAll('.role-card').forEach(card => {
+      card.addEventListener('click', () => {
+        window.fantasyAudio.playMagicalClick();
+        rolesGrid.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        travelerProfile.role = card.dataset.role;
+        travelerProfile.icon = card.dataset.icon;
+      });
+    });
+  }
+
+  // ==========================================
+  // STEP 1: UNSEAL THE GATES -> OPEN CHARACTER CREATION MODAL
   // ==========================================
   openGateBtn.addEventListener('click', () => {
     window.fantasyAudio.playGateOpeningSound();
 
-    // 1. Trigger Door opening animation
+    // Trigger Door opening animation
     doorFrame.classList.add('opened');
     openGateBtn.disabled = true;
     openGateBtn.style.opacity = '0';
 
-    // 2. Camera zoom & portal fade into realm
+    // Show Character Creation Ritual modal after the gates swing open
     setTimeout(() => {
-      gateScene.style.transform = 'scale(2.2)';
-      gateScene.style.opacity = '0';
+      characterModal.classList.remove('hidden');
+      if (charNameInput) charNameInput.focus();
+    }, 1600);
+  });
 
-      setTimeout(() => {
-        gateScene.classList.remove('active');
-        gateScene.classList.add('hidden');
-        gateScene.style.transform = '';
+  // ==========================================
+  // STEP 2: EMBARK WITH JENIS INTO REALM
+  // ==========================================
+  embarkBtn.addEventListener('click', () => {
+    const rawName = charNameInput.value.trim();
+    if (!rawName) {
+      charErrorMsg.classList.remove('hidden');
+      charNameInput.focus();
+      return;
+    }
 
-        realmScene.classList.remove('hidden');
-        realmScene.classList.add('active');
+    charErrorMsg.classList.add('hidden');
+    travelerProfile.name = rawName;
 
-        // Start story from Chapter 1
-        currentChapterIndex = 0;
-        renderChapter(currentChapterIndex);
-      }, 1000);
-    }, 1800);
+    // Update Traveler banner
+    travelerNameDisplay.textContent = travelerProfile.name;
+    travelerRoleDisplay.textContent = travelerProfile.role;
+    travelerIconDisplay.textContent = travelerProfile.icon;
+
+    window.fantasyAudio.playMagicalClick();
+
+    // Close Modal with fade out
+    characterModal.classList.add('hidden');
+
+    // Camera zoom & portal fade into realm
+    gateScene.style.transform = 'scale(2.2)';
+    gateScene.style.opacity = '0';
+
+    setTimeout(() => {
+      gateScene.classList.remove('active');
+      gateScene.classList.add('hidden');
+      gateScene.style.transform = '';
+
+      realmScene.classList.remove('hidden');
+      realmScene.classList.add('active');
+
+      // Start story from Chapter 1 with user's customized name
+      currentChapterIndex = 0;
+      renderChapter(currentChapterIndex);
+    }, 1000);
+  });
+
+  // Allow pressing Enter in the Name Input
+  charNameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      embarkBtn.click();
+    }
   });
 
   // ==========================================
@@ -248,6 +324,7 @@
     realmScene.classList.remove('active');
     realmScene.classList.add('hidden');
 
+    characterModal.classList.add('hidden');
     doorFrame.classList.remove('opened');
     gateScene.classList.remove('hidden');
     gateScene.classList.add('active');
@@ -264,7 +341,7 @@
   // Sound FX Toggle
   toggleSoundBtn.addEventListener('click', () => {
     const isMuted = window.fantasyAudio.toggleMute();
-    toggleSoundBtn.querySelector('.icon').textContent = isMuted ? 'ðŸ”‡' : 'ðŸ”Š';
+    toggleSoundBtn.querySelector('.icon').textContent = isMuted ? '🔇' : '🔊';
     toggleSoundBtn.querySelector('.label').textContent = isMuted ? 'Muted' : 'Sound FX';
   });
 
@@ -291,16 +368,16 @@
   replayBtn.addEventListener('click', () => {
     window.fantasyAudio.playMagicalClick();
     const data = window.storyChapters[currentChapterIndex];
-    if (data) speakText(data.enText);
+    if (data) speakText(personalizeText(data.enText));
   });
 
-  // Interactive Jenis Click response
+  // Interactive Jenis Click response with user name
   javisOrb.addEventListener('click', () => {
     window.fantasyAudio.playMagicalClick();
     const greetings = [
-      "I am right here with you, dear adventurer.",
-      "Nueng's story is filled with so much warmth and inspiration, isn't it?",
-      "Take your time, let the wonder unfold."
+      `I am right here with you, noble ${travelerProfile.name}.`,
+      `${travelerProfile.name}, as a ${travelerProfile.role}, Nueng's true essence speaks directly to your soul, doesn't it?`,
+      `Take your time, ${travelerProfile.name}. Let the wonder of Nueng's true journey unfold before your eyes.`
     ];
     const phrase = greetings[Math.floor(Math.random() * greetings.length)];
     speakText(phrase);

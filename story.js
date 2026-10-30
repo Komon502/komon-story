@@ -2,8 +2,8 @@
 const storyChapters = [
   {
     chapter: "CHAPTER I: THE CELESTIAL WELCOME",
-    enText: "Welcome, noble travelers. I am Jenis, your celestial guide through this enchanted sanctuary. Come, walk with me, and let us unveil the legend of a truly remarkable soul named Komon.",
-    thText: "ยินดีต้อนรับเหล่าผู้กล้าทุกท่านค่ะ... เราชื่อ Jenis ผู้พิทักษ์และผู้นำทางแห่งดินแดนนี้ ก้าวเข้ามาสิคะ แล้วเราจะพาคุณไปสัมผัสเรื่องราวอันน่าหลงใหลของชายที่ชื่อ 'Komon'",
+    enText: "Welcome, noble {userName}. As a {userRole}, you have crossed the threshold into our enchanted sanctuary. I am Jenis, your celestial guide. Walk with me, and let us embark on a quest to discover the true identity and passions of a remarkable soul named Komon.",
+    thText: "ยินดีต้อนรับท่านผู้กล้า {userName}... ในฐานะ {userRole} ผู้เดินทางข้ามผ่านประตูสู่แดนศักดิ์สิทธิ์ เราชื่อ Jenis ผู้พิทักษ์และผู้นำทางแห่งดินแดนนี้ ก้าวเข้ามาสิคะ แล้วเราจะพาคุณไปค้นหาตัวตนที่แท้จริงและเรื่องราวอันน่าหลงใหลของชายที่ชื่อ 'Komon'",
     icon: "✨",
     title: "Celestial Guide Jenis",
     bgTheme: "theme-celestial-sanctuary",
@@ -61,8 +61,8 @@ const storyChapters = [
   },
   {
     chapter: "CHAPTER II: THE HEART OF A CRAFTSMAN",
-    enText: "His close companions simply call him Nueng. With keen intellect and passion, he weaves logic into reality as a Software Developer and Engineer, breathing innovation into life right here in Samut Prakan.",
-    thText: "ผู้คนคุ้นเคยกับเขาในชื่อ 'หนึ่ง' ชายผู้เปี่ยมด้วยหัวใจของนักสร้างสรรค์... เขาคือนักพัฒนาซอฟต์แวร์และวิศวกรผู้มากฝีมือ ผู้รังสรรค์นวัตกรรมอันมีชีวิตชีวา ณ เมืองสมุทรปราการ",
+    enText: "Behold, {userName}... His close companions simply call him Nueng. With keen intellect and relentless curiosity, he weaves logic into reality as a skilled Software Developer and Electrical Engineer, forging innovation right here in Samut Prakan.",
+    thText: "ทอดสายตาดูสิคะ {userName}... สหายสนิทเรียกเขาว่า 'หนึ่ง' ชายผู้เปี่ยมด้วยหัวใจของนักสร้างสรรค์... เขาคือนักพัฒนาซอฟต์แวร์และวิศวกรไฟฟ้าผู้มากฝีมือ ผู้รังสรรค์นวัตกรรมอันทรงคุณค่า ณ เมืองสมุทรปราการ",
     icon: "⚡",
     title: "The Visionary Engineer",
     bgTheme: "theme-arcane-forge",
@@ -113,8 +113,8 @@ const storyChapters = [
   },
   {
     chapter: "CHAPTER III: SYMPHONY OF PASSION",
-    enText: "Yet beneath his quiet logic lies a soul set ablaze by music and the roar of machines. From the rhythmic roots of Mor-lam to blistering heavy metal, soulful jazz, nostalgic 70s, 80s, 90s, and breathtaking classical symphonies—his heart beats in tune with them all.",
-    thText: "แต่ลึกลงไปในโลกแห่งตรรกะ หัวใจของเขาเต้นระรัวไปด้วยเสียงเพลงและความเร็วของรถยนต์... ไม่ว่าจะเป็นจังหวะหมอลำอันอบอุ่น, ความดุดันของเมทัล, ท่วงทำนองแจ๊ส, บทเพลงยุค 70s-90s หรือคลาสสิกอันงดงาม ดนตรีคือลมหายใจของเขา",
+    enText: "Listen closely, {userName}. Beneath his calm logic lies a heart set ablaze by music and the roar of machines. From heartfelt Mor-lam to blistering metal, soulful jazz, 70s, 80s, 90s anthems, and classical symphonies—these sounds reveal who Nueng truly is.",
+    thText: "ฟังให้ดีสิคะ {userName}... ภายใต้โลกแห่งตรรกะอันสุขุม หัวใจของเขาเต้นระรัวไปด้วยเสียงดนตรีและความเร็วของเครื่องยนต์... ไม่ว่าจะเป็นหมอลำ, เมทัลดุดัน, แจ๊ส, บทเพลงยุค 70s-90s หรือคลาสสิกอันวิจิตร ทั้งหมดนี้คือตัวตนที่แท้จริงของหนึ่ง",
     icon: "🏎️",
     title: "Echoes of Melodies & Speed",
     bgTheme: "theme-neon-hyperdrive",
@@ -181,8 +181,8 @@ const storyChapters = [
   },
   {
     chapter: "CHAPTER IV: A DAY IN THE LIFE",
-    enText: "Each day is a beautiful adventure for Nueng. He greets the morning sun with energizing fitness. The daylight hours see him mastering circuitry, writing elegant code, and building apps. As twilight falls, he devotes his energy to Amway. And under the stars, his fingers gently strum the guitar strings into the night.",
-    thText: "ในทุกๆ วันของหนึ่งเต็มไปด้วยพลังและความหมาย: ยามเช้าปลุกความสดชื่นด้วยการออกกำลังกาย, กลางวันมุ่งมั่นกับงานวิศวกรรมไฟฟ้าและเขียนโค้ดสร้างแอพ, ยามเย็นทุ่มเทให้กับธุรกิจ Amway, และก่อนนิทรา เขากล่อมค่ำคืนด้วยเสียงกีตาร์อันอบอุ่น",
+    enText: "Imagine walking a day in his shoes, {userName}. Nueng greets the dawn with fitness, spends the light mastering circuits and crafting software, pours devotion into his Amway vision at dusk, and lulls the night with gentle guitar melodies.",
+    thText: "ลองจินตนาการถึงหนึ่งวันของเขาดูสิคะ {userName}... ยามเช้าหนึ่งปลุกพลังด้วยการออกกำลังกาย, กลางวันมุ่งมั่นกับวงจรไฟฟ้าและเขียนโค้ด, ยามเย็นทุ่มเทให้กับธุรกิจ Amway, และก่อนนิทรา เขากล่อมค่ำคืนด้วยเสียงกีตาร์อันอบอุ่น",
     icon: "⏳",
     title: "Rhythm of Daily Life",
     bgTheme: "theme-twilight-realm",
@@ -238,8 +238,8 @@ const storyChapters = [
   },
   {
     chapter: "CHAPTER V: THE FOUR PILLARS",
-    enText: "Ask him what truly gives color to his world, and he will smile and name four sacred treasures: The thrill of cars, the solace of music, the warmth of cherished friends, and the freedom of financial wealth.",
-    thText: "หากถามว่าสิ่งใดคือคุณค่าที่ขาดไม่ได้ในชีวิตของหนึ่ง... นั่นคือ 4 เสาหลักอันล้ำค่า: ความหลงใหลในยานยนต์, มนต์เสน่ห์แห่งเสียงดนตรี, มิตรภาพอันอบอุ่นของเพื่อนแท้, และอิสรภาพทางการเงิน",
+    enText: "If you ask what truly anchors Nueng's soul, {userName}, he will name four sacred treasures: The thrill of automobiles, the solace of melodies, the warmth of cherished friends, and the ultimate blessing of financial freedom.",
+    thText: "หากท่าน {userName} ถามว่าสิ่งใดคือแก่นแท้ในชีวิตของหนึ่ง... นั่นคือ 4 เสาหลักอันล้ำค่า: ความหลงใหลในยานยนต์, มนต์เสน่ห์แห่งเสียงดนตรี, มิตรภาพอันอบอุ่นของเพื่อนแท้, และอิสรภาพทางการเงิน",
     icon: "💎",
     title: "The Four Precious Treasures",
     bgTheme: "theme-pillars-sanctum",
@@ -301,8 +301,8 @@ const storyChapters = [
   },
   {
     chapter: "CHAPTER VI: EPILOGUE & HEARTFELT GRATITUDE",
-    enText: "And now, as our journey together reaches its tender horizon, Nueng shares a message straight from his heart: Finding Amway was a turning point beyond his wildest dreams—a truly wonderful path. From the bottom of his heart, thank you, brave travelers, for stepping through the gates to discover his story.",
-    thText: "และในช่วงเวลาสุดท้ายนี้ หนึ่งอยากส่งผ่านความรู้สึกจากหัวใจถึงทุกท่านว่า... การได้รู้จักธุรกิจ Amway คือสิ่งมหัศจรรย์ที่เกินฝัน และนำพาโอกาสอันงดงามมาสู่ชีวิต... ขอบคุณผู้กล้าทุกท่านจากหัวใจ ที่ร่วมเดินทางมาทำความรู้จักว่า 'หนึ่ง' คือใครในดินแดนแห่งนี้ค่ะ",
+    enText: "And now, {userName}, our journey reaches this glowing horizon. Nueng shares a heartfelt message: Embracing Amway was a turning point beyond his wildest dreams. From the bottom of his heart, thank you, noble {userName}, for stepping into this realm to know the true man he is.",
+    thText: "และในช่วงเวลานี้ {userName}... การเดินทางของเรามาถึงเส้นขอบฟ้าอันงดงาม หนึ่งอยากบอกจากใจว่า การได้รู้จัก Amway คือจุดเปลี่ยนที่เกินฝัน... และจากก้นบึ้งของหัวใจ ขอบคุณท่าน {userName} อย่างยิ่ง ที่เดินทางข้ามประตูมาสัมผัสและรู้จักตัวตนที่แท้จริงของ 'หนึ่ง' ในวันนี้ค่ะ",
     icon: "👑",
     title: "A Heartfelt Tomorrow",
     bgTheme: "theme-golden-horizon",
