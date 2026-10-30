@@ -1,11 +1,12 @@
-// Story data crafted with smooth, elegant storytelling and heartfelt emotion
+// Story data crafted as a Dungeon Quest to find and rescue Nueng (Komon)
 const storyChapters = [
   {
-    chapter: "CHAPTER I: THE CELESTIAL WELCOME",
-    enText: "Welcome, noble {userName}. As a {userRole}, you have crossed the threshold into our enchanted sanctuary. I am Jenis, your celestial guide. Walk with me, and let us embark on a quest to discover the true identity and passions of a remarkable soul named Komon.",
-    thText: "ยินดีต้อนรับท่านผู้กล้า {userName}... ในฐานะ {userRole} ผู้เดินทางข้ามผ่านประตูสู่แดนศักดิ์สิทธิ์ เราชื่อ Jenis ผู้พิทักษ์และผู้นำทางแห่งดินแดนนี้ ก้าวเข้ามาสิคะ แล้วเราจะพาคุณไปค้นหาตัวตนที่แท้จริงและเรื่องราวอันน่าหลงใหลของชายที่ชื่อ 'Komon'",
-    icon: "✨",
-    title: "Celestial Guide Jenis",
+    chapter: "FLOOR I: THE SANCTUARY GATES & THE MISSING CREATOR",
+    enText: "Listen carefully, noble {userName}! Our sanctuary has fallen into silence. Komon—whom we affectionately call Nueng—has been captured and locked away deep in the Abyssal Core by an ancient Void Warden! As a {userRole}, I, Jenis, will guide you through each perilous dungeon floor. We must uncover his true passions and gather the strength to rescue him!",
+    thText: "ฟังให้ดีนะคะ ท่านผู้กล้า {userName}! ดินแดนศักดิ์สิทธิ์ของเราเกิดภัยพิบัติ... 'หนึ่ง' (Komon) ผู้สร้างและวิศวกรคนสำคัญของเรา ถูกจอมมารแห่งมิติความมืดจับตัวขังไว้ในส่วนลึกสุดของดันเจี้ยน! ในฐานะ {userRole} เรา Jenis จะนำทางคุณฝ่าฟันดันเจี้ยนแต่ละชั้น เพื่อตามหาเบาะแสและช่วยเหลือหนึ่งออกมาให้ได้ค่ะ!",
+    icon: "🏰",
+    title: "Sanctuary Distress Call",
+    isBattle: false,
     bgTheme: "theme-celestial-sanctuary",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -25,27 +26,20 @@ const storyChapters = [
             <stop offset="100%" stop-color="#0e0a1e"/>
           </linearGradient>
         </defs>
-        <!-- Celestial Aurora & Nebula -->
         <rect width="1000" height="600" fill="url(#skyGrad1)"/>
         <circle cx="500" cy="200" r="380" fill="url(#auroraGlow)"/>
-        
-        <!-- Distant Floating Citadel -->
         <g opacity="0.45" transform="translate(360, 110) scale(0.7)">
           <path d="M100 240 L160 150 L200 150 L220 90 L240 90 L260 150 L300 150 L360 240 Z" fill="#4d3587"/>
           <line x1="230" y1="90" x2="230" y2="40" stroke="#f5d061" stroke-width="2"/>
           <circle cx="230" cy="36" r="4" fill="#fff2a3"/>
           <ellipse cx="230" cy="245" rx="140" ry="25" fill="#311f5e"/>
         </g>
-
-        <!-- Floating Magic Shards & Runes -->
         <g class="drifting-crystals">
           <polygon points="180,240 195,200 210,240 195,270" fill="#00f2fe" opacity="0.6"/>
           <polygon points="780,210 798,160 816,210 798,250" fill="#f5d061" opacity="0.7"/>
           <polygon points="840,320 850,290 860,320 850,345" fill="#ff71ce" opacity="0.5"/>
           <polygon points="140,350 152,320 164,350 152,375" fill="#05ffa1" opacity="0.5"/>
         </g>
-
-        <!-- Giant Floating Island with Enchanted Trees -->
         <path d="M150 480 Q500 430 850 480 Q680 580 500 595 Q320 580 150 480 Z" fill="url(#floatingIslandGrad)" stroke="#6644a8" stroke-width="2"/>
         <path d="M495 445 L500 370 L505 445 Z" fill="#ffd700" filter="drop-shadow(0 0 8px #ffeb3b)"/>
         <circle cx="280" cy="460" r="28" fill="#582a8a" opacity="0.8"/>
@@ -54,17 +48,18 @@ const storyChapters = [
       </svg>
     `,
     items: [
-      { icon: "🌸", label: "Kindred Spirits" },
-      { icon: "📜", label: "The Living Tale" },
-      { icon: "🌌", label: "Sanctuary" }
+      { icon: "📜", label: "Dungeon Quest: Rescue Nueng" },
+      { icon: "🛡️", label: "Trial of 5 Clashes" },
+      { icon: "🗝️", label: "Sanctuary Beacon" }
     ]
   },
   {
-    chapter: "CHAPTER II: THE HEART OF A CRAFTSMAN",
-    enText: "Behold, {userName}... His close companions simply call him Nueng. With keen intellect and relentless curiosity, he weaves logic into reality as a skilled Software Developer and Electrical Engineer, forging innovation right here in Samut Prakan.",
-    thText: "ทอดสายตาดูสิคะ {userName}... สหายสนิทเรียกเขาว่า 'หนึ่ง' ชายผู้เปี่ยมด้วยหัวใจของนักสร้างสรรค์... เขาคือนักพัฒนาซอฟต์แวร์และวิศวกรไฟฟ้าผู้มากฝีมือ ผู้รังสรรค์นวัตกรรมอันทรงคุณค่า ณ เมืองสมุทรปราการ",
+    chapter: "FLOOR II: THE ARCANE FORGE OF SAMUT PRAKAN",
+    enText: "Look at the glowing terminals, {userName}! This floor preserves Nueng's engineering memories. He is an artisan of software and electrical circuitry, breathing innovation into existence in Samut Prakan. But a Glitch Golem guards the staircase! We must push through to track Nueng's energy signature!",
+    thText: "ดูหน้าจอเรืองแสงเหล่านี้สิคะ {userName}! ชั้นนี้คือความทรงจำด้านวิศวกรรมของหนึ่ง... เขาคือนักพัฒนาซอฟต์แวร์และวิศวกรไฟฟ้าผู้เก่งกาจ ผู้สรรค์สร้างเทคโนโลยี ณ สมุทรปราการ ร่องรอยพลังของเขานำพาเราลงสู่บันไดลึกต่อไป!",
     icon: "⚡",
     title: "The Visionary Engineer",
+    isBattle: false,
     bgTheme: "theme-arcane-forge",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -76,8 +71,6 @@ const storyChapters = [
           </linearGradient>
         </defs>
         <rect width="1000" height="600" fill="url(#forgeGrad)"/>
-        
-        <!-- Arcane Circuit Lines in the Sky -->
         <g stroke="#00f2fe" stroke-width="1.5" opacity="0.35" fill="none">
           <path d="M50 100 H250 L300 150 H550 L600 200 H950"/>
           <circle cx="250" cy="100" r="4" fill="#00f2fe"/>
@@ -87,18 +80,13 @@ const storyChapters = [
           <circle cx="380" cy="220" r="3" fill="#4facfe"/>
           <circle cx="700" cy="180" r="3" fill="#4facfe"/>
         </g>
-
-        <!-- Floating Holographic Hexagon Rings -->
         <g transform="translate(500, 260)" stroke="#00f2fe" stroke-width="2" fill="none" opacity="0.4">
           <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60"/>
           <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" stroke="#f5d061" opacity="0.6"/>
           <circle cx="0" cy="0" r="50" stroke="#ff71ce" stroke-dasharray="8 6"/>
         </g>
-
-        <!-- High-tech Fantasy Workshop & City Horizon -->
         <path d="M0 600 L120 470 L220 510 L350 430 L450 490 L560 380 L660 480 L790 410 L900 500 L1000 450 L1000 600 Z" fill="#051424" opacity="0.95"/>
         <path d="M150 600 L260 490 L390 530 L530 420 L620 500 L720 440 L880 520 L1000 480 L1000 600 Z" fill="#020b14"/>
-        
         <line x1="560" y1="380" x2="560" y2="280" stroke="#00f2fe" stroke-width="2" opacity="0.8"/>
         <circle cx="560" cy="275" r="5" fill="#fff" filter="drop-shadow(0 0 8px #00f2fe)"/>
         <line x1="350" y1="430" x2="350" y2="350" stroke="#f5d061" stroke-width="1.5" opacity="0.7"/>
@@ -112,11 +100,12 @@ const storyChapters = [
     ]
   },
   {
-    chapter: "CHAPTER III: SYMPHONY OF PASSION",
-    enText: "Listen closely, {userName}. Beneath his calm logic lies a heart set ablaze by music and the roar of machines. From heartfelt Mor-lam to blistering metal, soulful jazz, 70s, 80s, 90s anthems, and classical symphonies—these sounds reveal who Nueng truly is.",
-    thText: "ฟังให้ดีสิคะ {userName}... ภายใต้โลกแห่งตรรกะอันสุขุม หัวใจของเขาเต้นระรัวไปด้วยเสียงดนตรีและความเร็วของเครื่องยนต์... ไม่ว่าจะเป็นหมอลำ, เมทัลดุดัน, แจ๊ส, บทเพลงยุค 70s-90s หรือคลาสสิกอันวิจิตร ทั้งหมดนี้คือตัวตนที่แท้จริงของหนึ่ง",
+    chapter: "FLOOR III: THE SPEEDWAY OF MELODIC THUNDER",
+    enText: "Feel that vibration, {userName}? It's the roar of engines and heavy metal guitar chords echoing through the dungeon walls! Nueng's heart beats for speed, Mor-lam grooves, blazing metal, and jazz symphonies. His spirit is calling out to us, urging us to delve deeper!",
+    thText: "สัมผัสถึงแรงสั่นสะเทือนนี้ไหมคะ {userName}? เสียงคำรามของเครื่องยนต์และเสียงริฟฟ์กีตาร์ดังก้องไปทั่วผนังถ้ำ... หัวใจของหนึ่งรักความเร็ว ร็อค หมอลำ แจ๊ส และคลาสสิก เสียงดนตรีของเขากำลังนำทางเราไปยังชั้นต่อไป!",
     icon: "🏎️",
     title: "Echoes of Melodies & Speed",
+    isBattle: false,
     bgTheme: "theme-neon-hyperdrive",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -135,8 +124,6 @@ const storyChapters = [
           </radialGradient>
         </defs>
         <rect width="1000" height="600" fill="url(#neonSpeedGrad)"/>
-
-        <!-- Giant Neon Synth Sun / Musical Portal -->
         <circle cx="500" cy="300" r="140" fill="url(#synthSun)" filter="drop-shadow(0 0 35px #ff71ce)"/>
         <g stroke="#1e052d" stroke-width="4">
           <line x1="360" y1="290" x2="640" y2="290"/>
@@ -144,17 +131,12 @@ const storyChapters = [
           <line x1="390" y1="345" x2="610" y2="345" stroke-width="6"/>
           <line x1="420" y1="380" x2="580" y2="380" stroke-width="8"/>
         </g>
-
-        <!-- Musical Notation Waves -->
         <path d="M0 240 Q250 160 500 240 T1000 240" fill="none" stroke="#00f2fe" stroke-width="3" opacity="0.7"/>
         <path d="M0 260 Q250 320 500 260 T1000 260" fill="none" stroke="#f5d061" stroke-width="2" opacity="0.6"/>
-        
         <text x="220" y="210" font-size="40" fill="#fff" opacity="0.7" filter="drop-shadow(0 0 10px #ff71ce)">𝄞</text>
         <text x="740" y="220" font-size="34" fill="#00f2fe" opacity="0.8" filter="drop-shadow(0 0 10px #00f2fe)">𝄢</text>
         <text x="320" y="160" font-size="28" fill="#ffd700" opacity="0.6">♫</text>
         <text x="660" y="150" font-size="32" fill="#ff71ce" opacity="0.7">♬</text>
-
-        <!-- Infinite Neon Grid Speedway -->
         <g stroke="#ff71ce" stroke-width="1.8" opacity="0.6">
           <line x1="500" y1="370" x2="0" y2="600"/>
           <line x1="500" y1="370" x2="160" y2="600"/>
@@ -163,7 +145,6 @@ const storyChapters = [
           <line x1="500" y1="370" x2="670" y2="600"/>
           <line x1="500" y1="370" x2="840" y2="600"/>
           <line x1="500" y1="370" x2="1000" y2="600"/>
-
           <line x1="430" y1="400" x2="570" y2="400"/>
           <line x1="360" y1="435" x2="640" y2="435"/>
           <line x1="280" y1="475" x2="720" y2="475"/>
@@ -180,11 +161,12 @@ const storyChapters = [
     ]
   },
   {
-    chapter: "CHAPTER IV: A DAY IN THE LIFE",
-    enText: "Imagine walking a day in his shoes, {userName}. Nueng greets the dawn with fitness, spends the light mastering circuits and crafting software, pours devotion into his Amway vision at dusk, and lulls the night with gentle guitar melodies.",
-    thText: "ลองจินตนาการถึงหนึ่งวันของเขาดูสิคะ {userName}... ยามเช้าหนึ่งปลุกพลังด้วยการออกกำลังกาย, กลางวันมุ่งมั่นกับวงจรไฟฟ้าและเขียนโค้ด, ยามเย็นทุ่มเทให้กับธุรกิจ Amway, และก่อนนิทรา เขากล่อมค่ำคืนด้วยเสียงกีตาร์อันอบอุ่น",
+    chapter: "FLOOR IV: THE TWILIGHT CRUCIBLE",
+    enText: "We are descending into the deeper dungeon realms, {userName}. Here lies the reflection of Nueng's discipline: Morning fitness, mastering daily engineering, devotion to his Amway enterprise at dusk, and soothing midnight acoustic melodies. The air grows cold—the Boss's lair is directly beneath us!",
+    thText: "เรากำลังเข้าสู่ชั้นส่วนลึกของดันเจี้ยนแล้วค่ะ {userName}... ที่นี่สะท้อนถึงวินัยของหนึ่ง: ออกกำลังกายยามเช้า, วิศวกรรมสร้างแอพ, ทุ่มเทให้ Amway ยามเย็น, และกล่อมค่ำคืนด้วยกีตาร์... อากาศเริ่มเย็นยะเยือก ประตูห้องบอสอยู่ตรงหน้านี้แล้วค่ะ!",
     icon: "⏳",
     title: "Rhythm of Daily Life",
+    isBattle: false,
     bgTheme: "theme-twilight-realm",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -209,18 +191,10 @@ const storyChapters = [
         <rect width="1000" height="600" fill="url(#dayToNightGrad)"/>
         <circle cx="200" cy="220" r="180" fill="url(#sunGlow)"/>
         <circle cx="800" cy="180" r="150" fill="url(#moonGlow)"/>
-
-        <!-- Golden Dawn Sun -->
         <circle cx="200" cy="220" r="48" fill="#fffbe0" filter="drop-shadow(0 0 20px #ff9f43)"/>
-        
-        <!-- Crescent Mystic Moon -->
         <path d="M820 130 A45 45 0 1 0 850 200 A36 36 0 1 1 820 130 Z" fill="#f8fafc" filter="drop-shadow(0 0 16px #38bdf8)"/>
-
-        <!-- Rolling Fantasy Mountains -->
         <path d="M0 600 L0 440 Q160 380 320 460 T680 430 Q840 370 1000 450 L1000 600 Z" fill="#1b1236" opacity="0.8"/>
         <path d="M0 600 L0 500 Q200 450 420 520 Q640 460 820 510 L1000 480 L1000 600 Z" fill="#0e081e"/>
-
-        <!-- Tree with Night Magic -->
         <g transform="translate(730, 360)">
           <path d="M70 140 C65 100 50 70 30 50 C10 30 -20 20 -40 25 C-30 40 -10 50 15 65 C0 90 -20 110 -30 140 Z" fill="#07040d"/>
           <circle cx="-10" cy="35" r="4" fill="#ffd700" filter="drop-shadow(0 0 6px #ffd700)"/>
@@ -237,11 +211,12 @@ const storyChapters = [
     ]
   },
   {
-    chapter: "CHAPTER V: THE FOUR PILLARS",
-    enText: "If you ask what truly anchors Nueng's soul, {userName}, he will name four sacred treasures: The thrill of automobiles, the solace of melodies, the warmth of cherished friends, and the ultimate blessing of financial freedom.",
-    thText: "หากท่าน {userName} ถามว่าสิ่งใดคือแก่นแท้ในชีวิตของหนึ่ง... นั่นคือ 4 เสาหลักอันล้ำค่า: ความหลงใหลในยานยนต์, มนต์เสน่ห์แห่งเสียงดนตรี, มิตรภาพอันอบอุ่นของเพื่อนแท้, และอิสรภาพทางการเงิน",
+    chapter: "FLOOR V: THE FOUR PILLARS VAULT",
+    enText: "Look ahead, {userName}! These are the 4 Sacred Pillars that hold Nueng's world together: Cars, Music, True Friends, and Financial Freedom. The dark chains locking Nueng to the Void are drawing energy from this room. Nueng is trapped right behind this chamber!",
+    thText: "ดูตรงนั้นสิคะ {userName}! นี่คือเสาหลักทั้ง 4 แห่งจิตวิญญาณของหนึ่ง: ยานยนต์, เสียงดนตรี, มิตรภาพ, และอิสรภาพทางการเงิน... โซ่ตรวนแห่งความมืดกำลังกักขังหนึ่งไว้หลังห้องนี้แล้วค่ะ เตรียมอาวุธให้พร้อม!",
     icon: "💎",
-    title: "The Four Precious Treasures",
+    title: "The Four Pillars Sanctuary",
+    isBattle: false,
     bgTheme: "theme-pillars-sanctum",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -258,36 +233,30 @@ const storyChapters = [
           </linearGradient>
         </defs>
         <rect width="1000" height="600" fill="url(#pillarsVault)"/>
-
-        <!-- Four Ancient Guardian Pillars of Light -->
         <g transform="translate(140, 200)">
           <rect x="-18" y="60" width="36" height="340" fill="#20112e" stroke="#ff4757" stroke-width="1.5"/>
           <line x1="0" y1="60" x2="0" y2="400" stroke="#ff6b81" stroke-width="3" opacity="0.8"/>
           <polygon points="0,20 18,45 0,70 -18,45" fill="#ff4757" filter="drop-shadow(0 0 15px #ff4757)"/>
           <text x="0" y="430" text-anchor="middle" fill="#ff6b81" font-size="12" font-family="'Cinzel', serif">CARS</text>
         </g>
-
         <g transform="translate(380, 170)">
           <rect x="-18" y="60" width="36" height="370" fill="#0f1f38" stroke="#00f2fe" stroke-width="1.5"/>
           <line x1="0" y1="60" x2="0" y2="430" stroke="#4facfe" stroke-width="3" opacity="0.8"/>
           <polygon points="0,20 18,45 0,70 -18,45" fill="#00f2fe" filter="drop-shadow(0 0 15px #00f2fe)"/>
           <text x="0" y="460" text-anchor="middle" fill="#00f2fe" font-size="12" font-family="'Cinzel', serif">MUSIC</text>
         </g>
-
         <g transform="translate(620, 170)">
           <rect x="-18" y="60" width="36" height="370" fill="#0e261f" stroke="#2ed573" stroke-width="1.5"/>
           <line x1="0" y1="60" x2="0" y2="430" stroke="#7bed9f" stroke-width="3" opacity="0.8"/>
           <polygon points="0,20 18,45 0,70 -18,45" fill="#2ed573" filter="drop-shadow(0 0 15px #2ed573)"/>
           <text x="0" y="460" text-anchor="middle" fill="#2ed573" font-size="12" font-family="'Cinzel', serif">FRIENDS</text>
         </g>
-
         <g transform="translate(860, 200)">
           <rect x="-18" y="60" width="36" height="340" fill="#2d240e" stroke="#ffd700" stroke-width="1.5"/>
           <line x1="0" y1="60" x2="0" y2="400" stroke="#f5d061" stroke-width="3" opacity="0.8"/>
           <polygon points="0,20 18,45 0,70 -18,45" fill="url(#crystalGlowGold)" filter="drop-shadow(0 0 15px #ffd700)"/>
           <text x="0" y="430" text-anchor="middle" fill="#ffd700" font-size="12" font-family="'Cinzel', serif">FREEDOM</text>
         </g>
-
         <path d="M0 600 L100 500 L900 500 L1000 600 Z" fill="#080517" stroke="#37265e" stroke-width="2"/>
         <line x1="0" y1="500" x2="1000" y2="500" stroke="#f5d061" stroke-width="1.5" opacity="0.5"/>
       </svg>
@@ -300,11 +269,48 @@ const storyChapters = [
     ]
   },
   {
-    chapter: "CHAPTER VI: EPILOGUE & HEARTFELT GRATITUDE",
-    enText: "And now, {userName}, our journey reaches this glowing horizon. Nueng shares a heartfelt message: Embracing Amway was a turning point beyond his wildest dreams. From the bottom of his heart, thank you, noble {userName}, for stepping into this realm to know the true man he is.",
-    thText: "และในช่วงเวลานี้ {userName}... การเดินทางของเรามาถึงเส้นขอบฟ้าอันงดงาม หนึ่งอยากบอกจากใจว่า การได้รู้จัก Amway คือจุดเปลี่ยนที่เกินฝัน... และจากก้นบึ้งของหัวใจ ขอบคุณท่าน {userName} อย่างยิ่ง ที่เดินทางข้ามประตูมาสัมผัสและรู้จักตัวตนที่แท้จริงของ 'หนึ่ง' ในวันนี้ค่ะ",
+    chapter: "FINAL FLOOR: THE ABYSSAL BOSS DUEL (RESCUE NUENG!)",
+    enText: "BEHOLD! The Dread Void Warden has bound Nueng in dark stasis! The Warden challenges us to the ancient Trial of Fate: Rock, Paper, Scissors! First to score 5 points wins! Noble {userName}, fight for Nueng! Strike with Rock, Paper, or Scissors to shatter the boss's shield and save Nueng!",
+    thText: "ระวังตัวค่ะ! จอมมารแห่งความมืดกักขังหนึ่งไว้ในผลึกมืด! มันท้าทายการดวลแห่งโชคชะตา 'เป่ายิ้งฉุบ 5 คะแนน ใครชนะ 5 ครั้งก่อนจะเป็นผู้ชนะ!' ท่าน {userName} สู้เพื่อช่วยหนึ่งให้ได้นะคะ!",
+    icon: "👹",
+    title: "Dread Void Warden",
+    isBattle: true, // triggers interactive battle arena
+    bgTheme: "theme-boss-arena",
+    bgSvg: `
+      <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="bossVortex" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ff0055" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#4d003b" stop-opacity="0.9"/>
+            <stop offset="85%" stop-color="#15001c"/>
+            <stop offset="100%" stop-color="#050008"/>
+          </radialGradient>
+        </defs>
+        <rect width="1000" height="600" fill="url(#bossVortex)"/>
+        <!-- Demonic Runes & Lightning -->
+        <g stroke="#ff0055" stroke-width="2" opacity="0.6">
+          <circle cx="500" cy="300" r="220" stroke-dasharray="15 10"/>
+          <circle cx="500" cy="300" r="160" stroke-dasharray="8 6"/>
+          <polygon points="500,100 580,260 420,260" fill="none"/>
+          <polygon points="500,500 580,340 420,340" fill="none"/>
+        </g>
+        <!-- Dark Chains holding Nueng in stasis -->
+        <path d="M200 100 L450 280 M800 100 L550 280" stroke="#ffd700" stroke-width="3" stroke-dasharray="6 4" opacity="0.7"/>
+      </svg>
+    `,
+    items: [
+      { icon: "✊", label: "Rock (Crushes Scissors)" },
+      { icon: "✋", label: "Paper (Covers Rock)" },
+      { icon: "✌️", label: "Scissors (Cuts Paper)" }
+    ]
+  },
+  {
+    chapter: "EPILOGUE: THE RESCUE & HEARTFELT GRATITUDE",
+    enText: "YOU DID IT, {userName}! The Void Warden is vanquished and Nueng is free! Stepping into the warm morning light, Nueng smiles and clasps your hand with deepest gratitude: 'Finding Amway was the miracle that reshaped my destiny, but having a brave soul like you rescue my story is a blessing beyond words.' Thank you, noble {userName}!",
+    thText: "คุณทำสำเร็จแล้วค่ะ {userName}! จอมมารพ่ายแพ้และหนึ่งได้รับอิสรภาพ! หนึ่งก้าวออกมาพร้อมรอยยิ้มอันอบอุ่นและกล่าวขอบคุณจากก้นบึ้งของหัวใจว่า... การได้รู้จัก Amway คือปาฏิหาริย์ที่เปลี่ยนชีวิต แต่การได้สหายผู้กล้าอย่างท่านมาช่วยเหลือ คือความทรงจำอันล้ำค่าที่สุด ขอบคุณจากใจจริงค่ะ!",
     icon: "👑",
-    title: "A Heartfelt Tomorrow",
+    title: "Nueng is Saved!",
+    isBattle: false,
     bgTheme: "theme-golden-horizon",
     bgSvg: `
       <svg class="fantasy-scene-svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
@@ -324,11 +330,7 @@ const storyChapters = [
           </radialGradient>
         </defs>
         <rect width="1000" height="600" fill="url(#horizonGrad)"/>
-        
-        <!-- Rising Sun of Infinite Tomorrow -->
         <circle cx="500" cy="400" r="280" fill="url(#ascensionHalo)" filter="drop-shadow(0 0 50px #f59e0b)"/>
-
-        <!-- Radiant Golden Beams -->
         <g stroke="#ffffff" stroke-width="1.5" opacity="0.35">
           <line x1="500" y1="400" x2="200" y2="0"/>
           <line x1="500" y1="400" x2="350" y2="0"/>
@@ -336,8 +338,6 @@ const storyChapters = [
           <line x1="500" y1="400" x2="650" y2="0"/>
           <line x1="500" y1="400" x2="800" y2="0"/>
         </g>
-
-        <!-- Flight of Golden Stardust -->
         <g fill="#ffffff" opacity="0.8">
           <circle cx="480" cy="220" r="3"/>
           <circle cx="520" cy="190" r="4" filter="drop-shadow(0 0 6px #fff)"/>
@@ -345,8 +345,6 @@ const storyChapters = [
           <circle cx="550" cy="150" r="3.5"/>
           <circle cx="500" cy="120" r="5" fill="#fde047" filter="drop-shadow(0 0 10px #fde047)"/>
         </g>
-
-        <!-- Cliff of New Beginnings -->
         <path d="M0 600 L0 520 Q240 480 500 510 T1000 480 L1000 600 Z" fill="#140824"/>
         <path d="M120 600 L280 510 L450 560 L620 490 L850 580 L1000 540 L1000 600 Z" fill="#0b0314"/>
       </svg>

@@ -66,13 +66,13 @@
       </div>
 
       <div class="gate-intro-text">
-        <h1 class="fantasy-title">THE SANCTUM OF KOMON</h1>
-        <p class="fantasy-subtitle">Step forth, brave adventurer. Beyond these ancient gates lies the truth.</p>
+        <h1 class="fantasy-title">THE DUNGEON OF KOMON</h1>
+        <p class="fantasy-subtitle">Nueng has been captured in the Abyssal Core. Unseal the gates, forge your hero, and rescue him!</p>
         <button id="open-gate-btn" class="magical-btn">
           <span class="btn-glow"></span>
-          <span class="btn-text">⚔️ UNSEAL THE GATES ⚔️</span>
+          <span class="btn-text">⚔️ ENTER THE DUNGEON ⚔️</span>
         </button>
-        <p class="hint-text">Click to channel magic and unlock the realm</p>
+        <p class="hint-text">Click to open the portal and begin the rescue quest</p>
       </div>
     </div>
   </section>
@@ -82,24 +82,24 @@
     <div class="modal-card">
       <div class="modal-glow"></div>
       <div class="modal-header">
-        <span class="modal-badge">✦ SANCTUARY RITUAL ✦</span>
-        <h2 class="modal-title">FORGE YOUR IDENTITY</h2>
-        <p class="modal-subtitle">Before Jenis can guide you through the realm to seek the true identity of Nueng, declare who you are.</p>
+        <span class="modal-badge">✦ DUNGEON RESCUE RITUAL ✦</span>
+        <h2 class="modal-title">FORGE YOUR HERO</h2>
+        <p class="modal-subtitle">Before Jenis can guide you through the perilous floors to rescue Nueng from the Void Warden, state your name and choose your combat class!</p>
       </div>
 
       <div class="character-creation-body">
         <!-- Name Input -->
         <div class="form-group">
-          <label for="char-name-input" class="form-label">TRAVELER'S NAME</label>
+          <label for="char-name-input" class="form-label">HERO'S NAME</label>
           <div class="input-wrapper">
-            <input type="text" id="char-name-input" class="magic-input" placeholder="Enter your name or title (e.g., Alex, Sir Rowan)..." maxlength="24" autocomplete="off" />
+            <input type="text" id="char-name-input" class="magic-input" placeholder="Enter your hero name (e.g. Alex, Arthur, Luna)..." maxlength="24" autocomplete="off" />
             <span class="input-focus-border"></span>
           </div>
         </div>
 
         <!-- Class / Role Selection -->
         <div class="form-group">
-          <label class="form-label">CHOOSE YOUR PATH (SEEKER ROLE)</label>
+          <label class="form-label">CHOOSE YOUR COMBAT CLASS</label>
           <div class="roles-grid" id="roles-grid">
             <div class="role-card active" data-role="Seeker of Truth" data-icon="🧭" data-desc="A curious soul longing to uncover the true passions and essence of Komon.">
               <span class="role-icon">🧭</span>
@@ -140,13 +140,13 @@
         <!-- Submit Button -->
         <button id="embark-btn" class="magical-btn full-btn">
           <span class="btn-glow"></span>
-          <span class="btn-text">✨ EMBARK WITH JENIS ✨</span>
+          <span class="btn-text">⚔️ DESCEND WITH JENIS ⚔️</span>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ================= SCENE 2: THE INNER REALM (STORY SANCTUM) ================= -->
+  <!-- ================= SCENE 2: THE INNER REALM (STORY SANCTUM & DUNGEON) ================= -->
   <section id="realm-scene" class="scene hidden">
     <!-- Dynamic Fantasy Background Illustrations Container -->
     <div id="dynamic-backdrop" class="backdrop-container">
@@ -154,7 +154,7 @@
       <div class="backdrop-art active" id="bg-art">
         <div class="art-layer art-glow"></div>
         <div class="art-layer art-graphic" id="art-graphic-container">
-          <!-- SVG and dynamic visual elements injected per scene -->
+          <!-- Dynamic visual elements / Boss Arena injected per scene -->
         </div>
       </div>
     </div>
@@ -166,6 +166,12 @@
         <span class="traveler-role-label" id="traveler-role-display">Seeker of Truth</span>
         <span class="traveler-name-label" id="traveler-name-display">Traveler</span>
       </div>
+    </div>
+
+    <!-- Dungeon Floor Indicator (Top-Center) -->
+    <div id="floor-indicator" class="dungeon-floor-indicator">
+      <span class="floor-rune">ᚱ</span>
+      <span id="floor-name" class="floor-title">DUNGEON FLOOR 1</span>
     </div>
 
     <!-- The Magical Floating Orb Guide: JENIS -->
@@ -190,7 +196,7 @@
     <div class="narration-console">
       <div class="console-glass">
         <!-- Chapter / Step Tracker -->
-        <div class="chapter-badge" id="chapter-badge">PROLOGUE: THE SUMMONING</div>
+        <div class="chapter-badge" id="chapter-badge">FLOOR I: THE DESCENT</div>
 
         <!-- English Speech (Narration) -->
         <div class="speech-box">
@@ -209,9 +215,9 @@
             <div class="progress-bar" id="story-progress"></div>
           </div>
           <div class="btn-group">
-            <button id="prev-btn" class="nav-btn" title="Previous chapter">❮ Back</button>
+            <button id="prev-btn" class="nav-btn" title="Previous floor">❮ Back</button>
             <button id="replay-btn" class="nav-btn" title="Replay voice">🔊 Replay Voice</button>
-            <button id="next-btn" class="nav-btn highlight" title="Next chapter">Next ❯</button>
+            <button id="next-btn" class="nav-btn highlight" title="Next floor">Next ❯</button>
           </div>
         </div>
       </div>

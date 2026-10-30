@@ -1082,3 +1082,314 @@ body {
   letter-spacing: 1px;
 }
 
+
+/* =========================================
+   DUNGEON FLOOR INDICATOR
+   ========================================= */
+.dungeon-floor-indicator {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 18, 33, 0.85);
+  border: 1px solid var(--border-gold);
+  border-radius: 30px;
+  padding: 8px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.floor-rune {
+  color: var(--primary-gold-bright);
+  font-size: 1.1rem;
+}
+
+.floor-title {
+  font-family: var(--font-fantasy);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--primary-gold);
+  font-weight: 700;
+}
+
+/* =========================================
+   BOSS BATTLE ARENA (ROCK-PAPER-SCISSORS 5-POINT DUEL)
+   ========================================= */
+.battle-arena {
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(13, 10, 24, 0.88);
+  border: 2px solid #ff0055;
+  border-radius: 24px;
+  padding: 24px 28px;
+  box-shadow: 0 0 40px rgba(255, 0, 85, 0.4), inset 0 0 25px rgba(255, 0, 85, 0.15);
+  backdrop-filter: blur(16px);
+  animation: arena-slam 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes arena-slam {
+  0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.battle-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.battle-title {
+  font-family: var(--font-fantasy);
+  font-size: 1.6rem;
+  color: #ff4757;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(255, 71, 87, 0.8);
+}
+
+.battle-subtitle {
+  font-size: 0.85rem;
+  color: #f1f2f6;
+  letter-spacing: 1px;
+}
+
+.battle-fighters {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fighter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 38%;
+  background: rgba(20, 15, 35, 0.7);
+  border: 1px solid rgba(245, 208, 97, 0.3);
+  border-radius: 18px;
+  padding: 16px 14px;
+  transition: all 0.3s;
+}
+
+.fighter-card.boss {
+  border-color: rgba(255, 0, 85, 0.6);
+  background: rgba(35, 10, 20, 0.7);
+}
+
+.fighter-avatar {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 16px rgba(0, 242, 254, 0.5));
+  animation: hover-hero 3s infinite alternate ease-in-out;
+}
+
+.fighter-card.boss .fighter-avatar {
+  filter: drop-shadow(0 0 20px rgba(255, 0, 85, 0.8));
+  animation: boss-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes boss-pulse {
+  0% { transform: scale(0.96) rotate(-2deg); filter: drop-shadow(0 0 15px #ff0055); }
+  100% { transform: scale(1.08) rotate(2deg); filter: drop-shadow(0 0 30px #ff3838); }
+}
+
+.fighter-name {
+  font-family: var(--font-fantasy);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-gold-bright);
+  margin-top: 6px;
+}
+
+.fighter-card.boss .fighter-name {
+  color: #ff6b81;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.score-pip {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.score-pip.filled {
+  background: var(--magic-cyan);
+  border-color: #fff;
+  box-shadow: 0 0 10px var(--magic-cyan);
+}
+
+.fighter-card.boss .score-pip.filled {
+  background: #ff4757;
+  border-color: #ff6b81;
+  box-shadow: 0 0 10px #ff4757;
+}
+
+.vs-badge {
+  font-family: var(--font-fantasy);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 0 0 15px #ff4757;
+  animation: vs-glow 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes vs-glow {
+  0% { transform: scale(0.9); }
+  100% { transform: scale(1.15); }
+}
+
+.battle-clash-status {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.clash-result-banner {
+  font-family: var(--font-fantasy);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 20px;
+  border-radius: 20px;
+  text-align: center;
+  animation: banner-pop 0.3s ease;
+}
+
+@keyframes banner-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.clash-result-banner.win {
+  color: #05ffa1;
+  background: rgba(5, 255, 161, 0.15);
+  border: 1px solid #05ffa1;
+  text-shadow: 0 0 10px #05ffa1;
+}
+
+.clash-result-banner.lose {
+  color: #ff4757;
+  background: rgba(255, 71, 87, 0.15);
+  border: 1px solid #ff4757;
+  text-shadow: 0 0 10px #ff4757;
+}
+
+.clash-result-banner.draw {
+  color: #f5d061;
+  background: rgba(245, 208, 97, 0.15);
+  border: 1px solid #f5d061;
+}
+
+.battle-action-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.action-prompt {
+  font-family: var(--font-fantasy);
+  font-size: 0.85rem;
+  color: var(--primary-gold-bright);
+  letter-spacing: 1px;
+}
+
+.rps-btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.rps-btn {
+  background: linear-gradient(135deg, #1b213b 0%, #2b1f3d 100%);
+  border: 2px solid var(--primary-gold);
+  border-radius: 18px;
+  padding: 12px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.rps-btn:hover:not(:disabled) {
+  transform: translateY(-5px) scale(1.08);
+  border-color: #fff;
+  box-shadow: 0 0 25px rgba(245, 208, 97, 0.7);
+}
+
+.rps-btn:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.rps-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rps-icon {
+  font-size: 2.2rem;
+}
+
+.rps-label {
+  font-family: var(--font-fantasy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primary-gold-bright);
+}
+
+/* Battle Victory State */
+.battle-victory-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 16px;
+  animation: victory-appear 0.8s ease-in-out forwards;
+}
+
+@keyframes victory-appear {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.victory-title {
+  font-family: var(--font-fantasy);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffd700;
+  letter-spacing: 3px;
+  text-shadow: 0 0 25px #ffd700;
+}
+
+.victory-desc {
+  font-size: 0.95rem;
+  color: #f1f2f6;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
